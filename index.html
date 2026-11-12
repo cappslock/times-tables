@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Times Table Flash Cards</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="progress">
+        <div class="progress-label"><span id="progress-count">0</span> of 100 squares</div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="step-label" id="step-label"></div>
+      </div>
+      <button class="icon-btn" id="mute-btn" aria-label="Sound on" title="Sound">🔊</button>
+    </header>
+
+    <section class="play">
+      <div class="card" id="card">
+        <div class="card-tag"><span id="card-tag"></span><button class="focus-exit" id="focus-exit" hidden>✕ stop</button></div>
+        <div class="card-problem">
+          <span id="card-a">7</span> × <span id="card-b">6</span> = <span class="answer" id="answer"></span>
+        </div>
+        <div class="card-msg" id="card-msg" aria-live="polite"></div>
+      </div>
+
+      <div class="keypad" id="keypad">
+        <button data-key="1">1</button><button data-key="2">2</button><button data-key="3">3</button>
+        <button data-key="4">4</button><button data-key="5">5</button>
+        <button data-key="back" class="key-soft" aria-label="Delete">⌫</button>
+        <button data-key="6">6</button><button data-key="7">7</button><button data-key="8">8</button>
+        <button data-key="9">9</button><button data-key="0">0</button>
+        <button data-key="enter" class="key-go">Check</button>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-soft" id="hint-btn">💡 Hint</button>
+        <button class="btn btn-soft" id="skip-btn">Skip →</button>
+      </div>
+    </section>
+
+    <section class="board">
+      <div class="grid" id="grid" role="grid" aria-label="Times table"></div>
+      <p class="grid-help">Tap a square to try that one · tap a blue number to practise that table in order.</p>
+    </section>
+
+    <footer class="footer">
+      <button class="link-btn" id="reset-btn">Start over</button>
+    </footer>
+  </main>
+
+  <div class="banner" id="banner" aria-live="polite"></div>
+
+  <div class="finale" id="finale" hidden>
+    <div class="finale-box">
+      <div class="trophy">🏆</div>
+      <h1>You filled the whole table!</h1>
+      <p>All 100 squares. Amazing work.</p>
+      <div class="finale-actions">
+        <button class="btn btn-go" id="keep-btn">Keep them bright</button>
+        <button class="btn btn-soft" id="again-btn">Start a new table</button>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="fx"></canvas>
+  <script src="game.js"></script>
+</body>
+</html>
